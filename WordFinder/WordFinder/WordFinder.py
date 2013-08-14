@@ -6,6 +6,23 @@ Created on Aug 12, 2013
 
 import operator
 
+def main():
+    input_list = GetInputWords()
+    FindSimilarWords(input_list)
+
+'''
+Ask user for input and return them in list form
+'''
+def GetInputWords():
+    print "Enter the words you'd like to match separated by commas:"
+    words = raw_input()
+    words = [x.strip() for x in words.split(',')]
+    return words
+
+'''
+Match the words given by the user to each line in the thesaurus file,
+print a the words that most closely matched the input
+'''
 def FindSimilarWords(input_list):
     file_name = 'thesaurus.txt'
     results_list = {}
@@ -43,7 +60,6 @@ def FindSimilarWords(input_list):
             count += 1
     else:
         print "No matching words were found."
-            
+
 if __name__ == "__main__":
-    input_list = ['evil', 'mean', 'angry',]
-    FindSimilarWords(input_list)
+    main()
